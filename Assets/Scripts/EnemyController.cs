@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
             GameObject explosionObject = Instantiate(smallExplosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(explosion, transform.position);
-            scoreController.IncreaseScore(scorePoint);
+            scoreController.IncreaseScore(scorePoint*enemyPosition.level);
             await Task.Delay(TimeSpan.FromSeconds(2));
             DestroyImmediate(explosionObject);
         }

@@ -57,9 +57,9 @@ public class ShipController : MonoBehaviour
             GameObject explosionObject = Instantiate(bigExplosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(explosion, transform.position);
+            sceneController.LoadGameOverScene();
             await Task.Delay(TimeSpan.FromSeconds(2));
             DestroyImmediate(explosionObject);
-            sceneController.LoadGameOverScene();
         }
     }
 
